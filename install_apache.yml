@@ -1,0 +1,21 @@
+---
+
+- hosts: linux #group名稱
+  #become: yes
+  tasks:
+ 
+    - name: update repository index
+      yum:
+        update_cache: true
+    - name: install apache2 package
+      yum:
+        name: httpd
+        state: latest
+
+    - name: add php support for apache
+      yum:
+        name: php
+        state: latest
+   
+  
+ 

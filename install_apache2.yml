@@ -1,0 +1,14 @@
+---
+
+- hosts: linux #group名稱
+  become: true
+  tasks:
+
+
+
+
+    - name: install apache2 package
+      yum:
+        name: safs
+  
+ 
