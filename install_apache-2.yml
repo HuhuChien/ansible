@@ -5,21 +5,22 @@
   tasks:
  
     - name: update repository index
-      yum:
+      apt:
         update_cache: true
-      when: ansible_distribution == "Ubuntu"  
+      when: ansible_distribution == "Ubuntu"   
 
     - name: install apache2 package
-      yum:
-        name: httpd
+      apt:
+        name: apache2
         state: latest
       when: ansible_distribution == "Ubuntu" 
-
+      #when: ansible_distribution in ["CentOS ",Ubuntu"] 
+      #when: ansible_distribution == "CentOS" and ansible_distribution_version == "7.9"
 
 
     - name: add php support for apache
-      yum:
-        name: php
+      apt:
+        name: libapache2-mod-php
         state: latest
       when: ansible_distribution == "Ubuntu" 
    
